@@ -95,15 +95,25 @@ public class Room implements Subject
     //----------------------------------------------------------------------------
     // Getters and Setters
 
-    public String getMealplan() { return mealPlan;}
+    public String getMealPlan() { return mealPlan;}
 
-    public void setMealplan(String plan) {
+    public void setMealPlan(String plan) {
         this.mealPlan = plan;
     }
     /**
      *
      * @return
      */
+
+    /**
+     * Method used when adding on to the existing meal plan
+     * @param plan
+     */
+    public void upgradeMealPlan(String plan)
+    {
+        this.mealPlan = mealPlan.concat(" " + plan);
+    }
+
     public String getDescription()
     {
         return description;

@@ -2,17 +2,16 @@ package DecoratorDesignPattern;
 
 import ObserverDesignPattern.Room;
 
-public class BasicMealPlanDecorator extends RoomDecorator {
+/**
+ * This Decorator class changes the room so that it has the requested type of meal plan
+ */
+public class BasicMealPlanDecorator extends Room {
 
-    /**
-     * @param decoratedRoom
-     */
-    public BasicMealPlanDecorator(Room decoratedRoom) {
-        super(decoratedRoom);
-    }
+    protected Room room;
 
-    public void setMealPlan(Room decoratedRoom)
+    public BasicMealPlanDecorator(Room r)
     {
-        decoratedRoom.setMealplan("3 XL 1 Topping Pizzas, 3 2l Soda Bottles, Cost $65");
+        this.room = r;
+        setMealPlan("Basic Meal Plan");
     }
 }

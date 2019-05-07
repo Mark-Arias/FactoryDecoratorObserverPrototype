@@ -3,6 +3,8 @@ package Core;
 import AbstractFactoryDesignPattern.AbstractRoomFactory;
 import AbstractFactoryDesignPattern.FactoryProducer;
 import DecoratorDesignPattern.BasicMealPlanDecorator;
+import DecoratorDesignPattern.BronzeMealPlanDecorator;
+import DecoratorDesignPattern.PlatinumMealPlanDecorator;
 import ObserverDesignPattern.AquaWorld;
 import ObserverDesignPattern.Room;
 import ObserverDesignPattern.RoomInterface;
@@ -21,7 +23,16 @@ public class Main {
 
         System.out.println("End of test");
 
-        //Room aquaWorldBasicMealPlan = new BasicMealPlanDecorator(new Room());
+        Room aquaWorldBasicMealPlan = new BasicMealPlanDecorator(aquaWorldRoom);
+        System.out.println(aquaWorldBasicMealPlan.getMealPlan());
+
+        System.out.println("Aquaworld after upgrading to the bronze plan");
+        aquaWorldBasicMealPlan = new BronzeMealPlanDecorator(aquaWorldBasicMealPlan);
+        System.out.println(aquaWorldBasicMealPlan.getMealPlan());
+
+        System.out.println("Aquaworld after upgrading to the Platinum plan");
+        Room aquaWorldGold = new PlatinumMealPlanDecorator(aquaWorldBasicMealPlan);
+        System.out.println(aquaWorldGold.getMealPlan());
 
 
     }
